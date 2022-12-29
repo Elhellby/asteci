@@ -71,21 +71,24 @@ function App() {
           setPage(page + 1)
         }}
         onRowDoubleClick={(info) => {
-          console.log(info.row.cityid)
+          setShowDetail(true)
         }}
       />
       <Modal
-        open={() => setShowDetail(!showDetail)}
-        onClose={() => setCloseDetail(!closeDetail)}
+        open={showDetail}
+        onClose={() => {
+          setShowDetail(false)
+        }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={{
           position: 'absolute',
-          top: '10%',
-          left: '10%',
-          transform: 'translate(-50%, -50%)',
+          top: '15%',
+          left: '15%',
+          transform: 'translate(-10%, -10%)',
           width: 600,
+          heigth:300,
           bgcolor: 'background.paper',
           border: '2px solid #000',
           boxShadow: 24,
